@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PPBannerView">
+
+        <attr name="pp_interval" format="integer" />
+        <attr name="pp_showIndicator" format="boolean" />
+        <attr name="pp_autoPlay" format="boolean" />
+        <attr name="pp_indicatorSelectedSrc" format="color|reference" />
+        <attr name="pp_indicatorUnSelectedSrc" format="color|reference" />
+        <attr name="pp_indicatorSize" format="dimension|reference" />
+        <attr name="pp_indicatorSpace" format="dimension|reference" />
+        <attr name="pp_indicatorMargin" format="dimension|reference" />
+        <attr name="pp_indicatorGravity" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="pp_imageViewScaleType" format="enum">
+            <enum name="FIT_XY" value="0" />
+            <enum name="FIT_CENTER" value="1" />
+            <enum name="CENTER" value="2" />
+            <enum name="CENTER_CROP" value="3" />
+            <enum name="CENTER_INSIDE" value="4" />
+        </attr>
+    </declare-styleable>
+
+</resources>
