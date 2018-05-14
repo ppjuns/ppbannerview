@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation project(':ppbannerview')
+    implementation 'com.github.gdmec07120731:ppbannerview:1.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
