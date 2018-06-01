@@ -16,9 +16,10 @@ class MainActivity : AppCompatActivity() {
         list.add("https://y.zdmimg.com/201801/06/5a50ac71168fc2320.jpg_d200.jpg")
         list.add("https://qna.smzdm.com/201805/11/5af51a9811b295276.jpg_a200.jpg")
         list.add("https://qny.smzdm.com/201805/13/5af8366c02b294584.jpg_d200.jpg")
-        pp.setBannerData(list)
-        pp.mOnBannerSwitchListener=object:PPBannerView.OnBannerSwitchListener{
+        ppbanner.setBannerData(list)
+        ppbanner.onBannerSwitchListener=object:PPBannerView.OnBannerSwitchListener{
             override fun onSwitch(position: Int, imageView: AppCompatImageView) {
+                imageView.setBackgroundResource(R.color.colorAccent)
                 Glide.with(this@MainActivity).load(list[position]).into(imageView)
             }
         }

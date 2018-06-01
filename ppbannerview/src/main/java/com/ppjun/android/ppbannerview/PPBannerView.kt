@@ -44,9 +44,9 @@ class PPBannerView(context: Context, attrs: AttributeSet?) : FrameLayout(context
     private var mLinearLayout: LinearLayout? = null
     private var mAdapter: RecyclerView.Adapter<*>
     //banner点击事件
-    var mOnBannerClickListener: OnBannerClickListener? = null
+    var onBannerClickListener: OnBannerClickListener? = null
     //banner切换事件
-    var mOnBannerSwitchListener: OnBannerSwitchListener? = null
+    var onBannerSwitchListener: OnBannerSwitchListener? = null
     //图片源
     var mData = ArrayList<String>()
     //点击x
@@ -124,6 +124,7 @@ class PPBannerView(context: Context, attrs: AttributeSet?) : FrameLayout(context
 
 
     init {
+        clipChildren=false
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.PPBannerView)
         mInterval = typeArray.getInt(R.styleable.PPBannerView_pp_interval, 3000)
         mDotSize = typeArray.getDimensionPixelSize(R.styleable.PPBannerView_pp_indicatorSize, 0)
@@ -298,12 +299,14 @@ class PPBannerView(context: Context, attrs: AttributeSet?) : FrameLayout(context
     inner class PPAdapter : RecyclerView.Adapter<PPAdapter.ImageViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
             val imageView = AppCompatImageView(context)
-            val params = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            val params = RecyclerView.LayoutParams(500, ViewGroup.LayoutParams.MATCH_PARENT)
+            params.setMargins(50,50,50,50)
             imageView.layoutParams = params
+
             imageView.id = R.id.ppAppCompatImageView
             imageView.scaleType = mScaleType
             imageView.setOnClickListener {
-                mOnBannerClickListener?.onClick(mCurrentIndex % mData.size)
+                onBannerClickListener?.onClick(mCurrentIndex % mData.size)
             }
             return ImageViewHolder(imageView)
         }
@@ -313,7 +316,7 @@ class PPBannerView(context: Context, attrs: AttributeSet?) : FrameLayout(context
         }
 
         override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-            mOnBannerSwitchListener?.onSwitch(position % mData.size, holder.img)
+            onBannerSwitchListener?.onSwitch(position % mData.size, holder.img)
         }
 
         inner class ImageViewHolder(var view: android.view.View) : RecyclerView.ViewHolder(view) {

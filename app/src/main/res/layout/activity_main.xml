@@ -4,14 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:clipChildren="false"
     tools:context=".MainActivity">
 
-  <com.ppjun.android.ppbannerview.PPBannerView
-      android:id="@+id/pp"
-      android:layout_width="match_parent"
-      android:background="@color/white"
-      app:pp_indicatorGravity="right"
-      app:pp_indicatorSelectedSrc="@color/colorAccent"
-      app:pp_indicatorUnSelectedSrc="@color/normal_bg"
-      android:layout_height="200dp"/>
+    <com.ppjun.android.ppbannerview.PPBannerView
+        android:id="@+id/ppbanner"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white"
+        app:pp_autoPlay="true"
+        android:clipChildren="false"
+        app:pp_imageViewScaleType="FIT_XY"
+        app:pp_indicatorGravity="right"
+        app:pp_indicatorSelectedSrc="@color/colorAccent"
+        app:pp_indicatorUnSelectedSrc="@color/normal_bg"
+        app:pp_interval="5000"
+        app:pp_showIndicator="true" />
 </RelativeLayout>
